@@ -2,7 +2,35 @@
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //Please PUT URL HERE 
-$Links	=	array('https://www.redfin.com/county/536/GA/Coweta-County/filter/include=sold-1wk');
+$Links	=	array('https://www.redfin.com/county/531/GA/Cherokee-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/510/GA/Barrow-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/511/GA/Bartow-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/521/GA/Butts-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/525/GA/Carroll-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/534/GA/Clayton-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/536/GA/Cobb-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/536/GA/Coweta-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/559/GA/Fayette-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/545/GA/Dawson-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/547/GA/DeKalb-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/551/GA/Douglas-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/561/GA/Forsyth-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/563/GA/Fulton-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/570/GA/Gwinnett-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/572/GA/Hall-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/574/GA/Haralson-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/577/GA/Heard-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/578/GA/Henry-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/582/GA/Jasper-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/588/GA/Lamar-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/602/GA/Meriwether-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/610/GA/Newton-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/613/GA/Paulding-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/615/GA/Pickens-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/617/GA/Pike-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/625/GA/Rockdale-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/629/GA/Spalding-County/filter/include=sold-1wk',
+'https://www.redfin.com/county/650/GA/Walton-County/filter/include=sold-1wk'); 
 $cHeadres = array(
       'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Accept-Language: en-US,en;q=0.5',
@@ -40,7 +68,7 @@ for ($mainpage = 0; $mainpage < sizeof($Links); $mainpage++)
 	$Mainpage	=	$Links[$mainpage];
 	
 	$html	=	dlPage($Mainpage);
-	
+	echo "Scraping In progress Dont Stop\n";
 	sleep(10);
 	if($html)
 	{
@@ -48,7 +76,6 @@ for ($mainpage = 0; $mainpage < sizeof($Links); $mainpage++)
 		$totalpages = 	str_replace("20 of" ,"",$Checkpage);
 		$num 		=	preg_replace("/[^0-9\.]/", '', $totalpages);
 		$bindas		= ceil($pagination	=	$num/20);
-		echo "Main Page => $Mainpage Total Records = $num \n";
 		for ($i = 0; $i <= $bindas; $i++)
 		{
 			$innerlink	=	$Mainpage.'/page-'.$i;
