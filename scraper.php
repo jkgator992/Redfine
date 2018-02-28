@@ -2,7 +2,7 @@
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //Please PUT URL HERE 
-$Links	=	array('https://www.redfin.com/county/521/GA/Butts-County/filter/include=sold-1wk');
+$Links	=	array('https://www.redfin.com/county/536/GA/Coweta-County/filter/include=sold-1wk');
 $cHeadres = array(
       'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Accept-Language: en-US,en;q=0.5',
