@@ -73,10 +73,10 @@ for ($mainpage = 0; $mainpage < sizeof($Links); $mainpage++)
 					//This is for State.
 					$space			=	$coma[1];
 					$spacetwo		=	explode(" ", $space);
-					$state			=	$spacetwo[0].'<br>';
+					$state			=	$spacetwo[0];
 					
 					//This is for postal code
-					$postalcode		=	 $spacetwo[1].'<br>';
+					$postalcode		=	 $spacetwo[1];
 					 
 					
 					
