@@ -59,12 +59,12 @@ for ($mainpage = 0; $mainpage < sizeof($Links); $mainpage++)
 			{
 			for($j = 0; $j <= $num; $j++) 
 				{				
-					$sold 			=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/div[@class='topleft']",0);
-					$fulladdress	=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[2]",0);
+					$sold 			=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/div[@class='topleft']",0)->plaintext;
+					$fulladdress	=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[2]",0)->plaintext;
 					//Street
-					$streetline		=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[2]/span[@data-rf-test-id='abp-streetLine']",0);
+					$streetline		=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[2]/span[@data-rf-test-id='abp-streetLine']",0)->plaintext;
 					
-					$CityStateZip	=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[2]/span[@class='cityStateZip']",0);
+					$CityStateZip	=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[2]/span[@class='cityStateZip']",0)->plaintext;
 					$coma 			= 	explode(", ", $CityStateZip);
   					
 					//This is for City
@@ -84,7 +84,7 @@ for ($mainpage = 0; $mainpage < sizeof($Links); $mainpage++)
 				
 				
 					$profileurl		=	$pages->find("//*[@id='MapHomeCard_$j']//div/a[@class='ViewDetailsButtonWrapper']",0)->href;
-					$price			=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[1]/span[2]",0);
+					$price			=	$pages->find("//*[@id='MapHomeCard_$j']/div/div[1]/a[2]/div[1]/div[1]/span[2]",0)->plaintext;
 					$listingurl		=	'https://www.redfin.com'.$profileurl;
 							
 					if($price != '' || $price != null)
