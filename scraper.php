@@ -98,7 +98,7 @@ for ($mainpage = 0; $mainpage < sizeof($Links); $mainpage++)
 						'postalcode' 	=> $postalcode, 
 						'sold' => $sold,
 						'mainpage' => $innerlink);
-						scraperwiki::save(array('listingurl','price','fulladdress','halfaddress','cityname','postalcodeofcity','sold','mainpage'), $record);
+						scraperwiki::save(array('listingurl','price','fulladdress','streetline','city','state','postalcode','sold','mainpage'), $record);
 					}
 					
 					
